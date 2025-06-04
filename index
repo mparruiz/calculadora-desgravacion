@@ -41,7 +41,7 @@
 </head>
 <body>
     <h1>Desgravación Fiscal para Donaciones</h1>
-    <p>Desgravación = 80% (hasta 250€) + 40% (resto)</p>
+    <p style="white-space: nowrap;">Desgravación = 80%(hasta 250€) + 40%(resto)</p>
     <form>
         <label for="donacion">Donación (€):</label>
         <input type="number" id="donacion" name="donacion" oninput="calcularDesgravacion()">
