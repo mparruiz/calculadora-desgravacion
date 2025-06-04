@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desgravación Fiscal para Donaciones</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            color: darkgreen;
+            text-align: center;
+        }
+        p {
+            color: darkgreen;
+            text-align: center;
+        }
+        label {
+            color: darkgreen;
+            display: block;
+            margin-top: 10px;
+        }
+        input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            box-sizing: border-box;
+        }
+        .result {
+            color: darkgreen;
+            font-weight: bold;
+        }
+        .cost {
+            color: darkgreen;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Desgravación Fiscal para Donaciones</h1>
+    <p>Desgravación = 80% (hasta 250€) + 40% (resto)</p>
+    <form>
+        <label for="donacion">Donación (€):</label>
+        <input type="number" id="donacion" name="donacion" oninput="calcularDesgravacion()">
+        
+        <label for="desgravacion">Desgravación (€):</label>
+        <input type="number" id="desgravacion" name="desgravacion" readonly>
+        
+        <label for="coste">Coste para donante (€):</label>
+        <input type="number" id="coste" name="coste" readonly>
+    </form>
+
+    <script>
+        function calcularDesgravacion() {
+            var donacion = parseFloat(document.getElementById('donacion').value);
+            var desgravacion = 0;
+
+            if (donacion <= 250) {
+                desgravacion = donacion * 0.80;
+            } else {
+                desgravacion = 200 + (donacion - 250) * 0.40;
+            }
+
+            document.getElementById('desgravacion').value = desgravacion.toFixed(2);
+            document.getElementById('coste').value = (donacion - desgravacion).toFixed(2);
+        }
+    </script>
+</body>
+</html>
