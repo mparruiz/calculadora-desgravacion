@@ -1,5 +1,4 @@
 
-
 <!DOCTYPE html>
 
 <html lang="es">
@@ -43,7 +42,9 @@
 </head>
 <body>
 <h1>Desgravación Fiscal para Donaciones</h1>
-<p style="white-space: nowrap;">Desgravación = 80%(hasta 250€) + 40%(resto)</p>
+<p style="white-space: nowrap;">Desgravación (Madrid) = 80%(hasta 250€) + 55%(resto)</p>
+<p style="white-space: nowrap;">Desgravación (Otras provincias) = 80%(hasta 250€) + 40%(resto)</p>
+<h1>Simulación desgravación en Madrid:</h1>
 <form>
 <label for="donacion">Donación (€):</label>
 <input id="donacion" name="donacion" oninput="calcularDesgravacion()" type="number"/>
@@ -60,7 +61,7 @@
             if (donacion <= 250) {
                 desgravacion = donacion * 0.80;
             } else {
-                desgravacion = 200 + (donacion - 250) * 0.40;
+                desgravacion = 200 + (donacion - 250) * 0.55;
             }
 
             document.getElementById('desgravacion').value = desgravacion.toFixed(2);
